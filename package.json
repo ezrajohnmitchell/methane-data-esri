@@ -1,0 +1,24 @@
+{
+  "name": "esri-vite",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "copy:all": "npm run copy:components && npm run copy:core && npm run copy:calcite",
+    "copy:components": "cpx-fixed ./node_modules/@arcgis/map-components/dist/arcgis-map-components/assets/**/*.* ./public/assets",
+    "copy:core": "cpx-fixed ./node_modules/@arcgis/core/assets/**/*.* ./public/assets",
+    "copy:calcite": "cpx-fixed ./node_modules/@esri/calcite-components/dist/calcite/assets/**/*.* ./public/assets"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.3",
+    "vite": "^5.4.1",
+    "cpx-fixed": "^1.6.0"
+  },
+  "dependencies": {
+    "@arcgis/core": "^4.30.9",
+    "@arcgis/map-components": "^4.30.7"
+  }
+}

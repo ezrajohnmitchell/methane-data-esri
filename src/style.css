@@ -1,0 +1,12 @@
+@import "@arcgis/core/assets/esri/themes/dark/main.css";
+@import "@esri/calcite-components/dist/calcite/calcite.css";
+
+body {
+  margin: 0;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+#map {
+  min-height: 100vh;
+}
