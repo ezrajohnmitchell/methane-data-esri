@@ -65,37 +65,6 @@ export class MapViewer {
         this.bindVerticalMovement(this.view);
     }
 
-    addPoint(lat: number, long: number, color = "red") {
-        let attributes =  {
-            name: "Point",
-            description: `${lat}, ${long}`
-        };
-
-        let graphic = new Graphic({
-            symbol: new SimpleMarkerSymbol({
-                size: 10,
-                color
-            }),
-            geometry: new Point({
-                latitude: lat,
-                longitude: long
-            }),
-            attributes,
-            popupTemplate: {
-                title: attributes.name,
-                content: attributes.description,
-                actions: null
-            }
-        })
-
-        this.graphicsLayer.add(graphic);
-        return graphic;
-    }
-
-    removeGraphic(graphic: Graphic) {
-        this.graphicsLayer.remove(graphic);
-    }
-
     private bindVerticalMovement(view: MapView) {
         view.when(v => {
             const yMax = 20000000;
@@ -110,16 +79,6 @@ export class MapViewer {
             });
 
         }).catch(() => console.log("initialization failed"));
-    }
-
-    private addPointOnClick(view: MapView) {
-        view.when(v => {
-            view.on("click", (e) => {
-                console.log(e)
-                if (e.native.button === 2)
-                    this.addPoint(e.mapPoint.latitude, e.mapPoint.longitude)
-            })
-        }).catch((err) => console.log("click event listener failed", err))
     }
 
 }
